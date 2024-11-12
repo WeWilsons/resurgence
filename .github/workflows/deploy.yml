@@ -13,19 +13,12 @@ jobs:
       - name: Check out the repository
         uses: actions/checkout@v3
 
-      - name: Set up SSH key
-        run: |
-          mkdir -p ~/.ssh
-          echo "${{ secrets.VPS_SSH_KEY }}" > ~/.ssh/authorized_keys
-          chmod 600 ~/.ssh/authorized_keys
-          ls -la ~/.ssh  # This is just to verify the key file is created
-
       - name: Deploy to VPS
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.VPS_HOST }}
           username: ${{ secrets.VPS_USER }}
-          key_path: ~/.ssh/authorized_keys
+          key: ${{ secrets.VPS_SSH_KEY }}
           script: |
             cd /var/www/arrowasphaltstriping.com
             git pull origin main
