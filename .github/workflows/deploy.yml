@@ -18,6 +18,7 @@ jobs:
           mkdir -p ~/.ssh
           echo "${{ secrets.VPS_SSH_KEY }}" > ~/.ssh/github_actions_key
           chmod 600 ~/.ssh/github_actions_key
+          ls -la ~/.ssh  # This is just to verify the key file is created
 
       - name: Deploy to VPS
         uses: appleboy/ssh-action@master
