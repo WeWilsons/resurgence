@@ -16,7 +16,7 @@ jobs:
       - name: Set up SSH key
         run: |
           mkdir -p ~/.ssh
-          echo "${{ secrets.VPS_SSH_KEY }}" > ~/.ssh/github_actions_key
+          echo "${{ secrets.VPS_SSH_KEY }}" > ~/.ssh/authorized_keys
           chmod 600 ~/.ssh/github_actions_key
           ls -la ~/.ssh  # This is just to verify the key file is created
 
