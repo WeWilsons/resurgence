@@ -13,16 +13,27 @@ jobs:
       - name: Check out the repository
         uses: actions/checkout@v3
 
-      - name: Deploy to VPS
+      - name: Install Dependencies on VPS
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.VPS_HOST }} # The IP address or hostname of your VPS
           username: ${{ secrets.VPS_USER }} # The username to connect to on your VPS
           key: ${{ secrets.VPS_SSH_KEY }} # The private SSH key, stored as a GitHub secret
           port: 22 # The SSH port (usually 22)
-          script: | # Commands to run on the server after connecting
+          script: |
             cd /var/www/arrowasphaltstriping.com
             rbenv local 3.1.4
+            bundle install --path vendor/bundle # Install all gems, including faraday-retry
+
+      - name: Deploy to VPS
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          port: 22
+          script: |
+            cd /var/www/arrowasphaltstriping.com
             git pull origin main
             JEKYLL_ENV=production bundle exec jekyll build
             sudo systemctl restart apache2
