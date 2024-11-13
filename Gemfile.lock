@@ -4,9 +4,11 @@ GEM
     addressable (2.8.5)
       public_suffix (>= 2.0.2, < 6.0)
     asciidoctor (1.5.8)
+    base64 (0.2.0)
     coderay (1.1.1)
     colorator (1.1.0)
     concurrent-ruby (1.2.2)
+    csv (3.3.0)
     em-websocket (0.5.3)
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0)
@@ -98,7 +100,9 @@ PLATFORMS
 
 DEPENDENCIES
   asciidoctor (~> 1.5.4)
+  base64
   coderay (= 1.1.1)
+  csv
   faraday-retry
   google-protobuf (~> 3.22)
   http_parser.rb (~> 0.6.0)
