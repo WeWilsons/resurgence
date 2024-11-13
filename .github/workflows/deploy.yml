@@ -24,19 +24,17 @@ jobs:
             cd /var/www/arrowasphaltstriping.com
 
             # Set rbenv Ruby version to 3.1.4
-            if rbenv versions | grep -q "3.1.4"; then
-              rbenv local 3.1.4
-            else
-              echo "Ruby 3.1.4 not installed, please install it on the server."
-              exit 1
-            fi
+            rbenv local 3.1.4 || { echo "Ruby 3.1.4 not found. Please install."; exit 1; }
 
-            # Install dependencies
+            # Ensure Jekyll and Bundler are installed with correct version
             gem install bundler jekyll
+
+            # Rebuild the Gemfile.lock for a fresh environment
+            rm -f Gemfile.lock
             bundle config set --local path 'vendor/bundle'
             bundle install
 
-            # Clean, Build, and Deploy
+            # Clean and Build the Jekyll site
             bundle exec jekyll clean
             JEKYLL_ENV=production bundle exec jekyll build --trace
 
