@@ -11,126 +11,143 @@
 
 */
 
+
+
 /* Basics
 ------------------------------------------------------------------- */
 
-$text-color: #000000; // Black for primary text
-$body-font-color: $text-color;
-$body-bg: #ffffff; // White background
+$text-color         : #111;
+$body-font-color    : $text-color;
+$body-bg            : #fdfdfd;
+
+
 
 /* Corporate Identity Colorpalette
-   Asphalt Striping Colors: Black, White, Yellow
+   https://color.adobe.com/de/Flat-Design-Colors-v2-color-theme-4341903/
 ------------------------------------------------------------------- */
 
-$ci-1: #000000; // Black
-$ci-2: #ffffff; // White
-$ci-3: #ffc100; // Yellow
-$ci-4: #ffc100; // Dark Yellow for accents
-$ci-5: #333333; // Dark Grey for subtle elements
-$ci-6: #ffc100; // Yellow
+$ci-1               : #334D5C; // dark turquoise
+$ci-2               : #45B29D; // turquoise
+$ci-3               : #EFC94C; // yellow
+$ci-4               : #E27A3F; // orange
+$ci-5               : #DF4949; // red
+$ci-6               : #A1D044; // green
+
+
 
 /* Foundation Color Variables
 ------------------------------------------------------------------- */
 
-$primary-color: $ci-1; // Black
-$secondary-color: $ci-6; // Yellow
-$alert-color: $ci-5; // Dark Grey
-$success-color: $ci-6; // Yellow
-$warning-color: $ci-4; // Dark Yellow
-$info-color: $ci-1; // Black
+$primary-color      : $ci-1;
+$secondary-color    : $ci-6;
+$alert-color        : $ci-5;
+$success-color      : $ci-6;
+$warning-color      : $ci-4;
+$info-color         : $ci-1;
+
+
 
 /* Grey Scale
 ------------------------------------------------------------------- */
 
-$grey-1: #f5f5f5;
-$grey-2: #e0e0e0;
-$grey-3: #cccccc;
-$grey-4: #b3b3b3;
-$grey-5: #999999;
-$grey-6: #808080;
-$grey-7: #666666;
-$grey-8: #4d4d4d;
-$grey-9: #333333;
-$grey-10: #1a1a1a;
-$grey-11: #000000; // Black
-$grey-12: #000000;
-$grey-13: #000000;
-$grey-14: #000000;
-$grey-15: #000000;
-$grey-16: #000000;
+$grey-1             : #E4E4E4;
+$grey-2             : #D7D7D7;
+$grey-3             : #CBCBCB;
+$grey-4             : #BEBEBE;
+$grey-5             : #A4A4A4;
+$grey-6             : #979797;
+$grey-7             : #8B8B8B;
+$grey-8             : #7E7E7E;
+$grey-9             : #646464;
+$grey-10            : #575757;
+$grey-11            : #4B4B4B;
+$grey-12            : #3E3E3E;
+$grey-13            : #313131;
+$grey-14            : #242424;
+$grey-15            : #171717;
+$grey-16            : #0B0B0B;
+
+
 
 /* Topbar-Navigation
 ------------------------------------------------------------------- */
 
-$topbar-bg-color: $ffc100; // Yellow
-$topbar-bg: $topbar-bg-color;
+$topbar-bg-color    : $body-bg;
+$topbar-bg          : $topbar-bg-color;
 
-$topbar-dropdown-toggle-color: $ci-1; // Black
 
-$topbar-link-color: $ci-1; // Black
-$topbar-link-color-hover: $ci-4; // Dark Yellow
-$topbar-link-color-active: $ci-6; // Yellow
-$topbar-link-color-active-hover: $ci-3; // Bright Yellow
+$topbar-dropdown-toggle-color: $ci-1;
 
-$topbar-dropdown-label-color: $ci-3; // Yellow
-$topbar-dropdown-link-bg-hover: $ci-6; // Yellow
+$topbar-link-color  : #000;
+$topbar-link-color-hover: #000;
+$topbar-link-color-active: #000;
+$topbar-link-color-active-hover: #000;
 
-$topbar-link-bg-active: $ci-6; // Yellow (Active Navigation Link
-$topbar-link-bg-hover: $ci-4; // Dark Yellow
-$topbar-link-bg-active-hover: $ci-2; // White
+$topbar-dropdown-label-color: $ci-2;
+$topbar-dropdown-link-bg-hover: $ci-6;
 
-$topbar-dropdown-bg: $ci-2; // White (Background Mobile Navigation)
-$topbar-dropdown-link-color: $ci-1; // Black
-$topbar-dropdown-link-bg: $ci-3; // Yellow
+$topbar-link-bg-active: $ci-6; // Active Navigation Link
+$topbar-link-bg-hover: $ci-6;
+$topbar-link-bg-active-hover: $ci-2;
 
-$topbar-menu-link-color-toggled: $ci-1; // Black
-$topbar-menu-icon-color-toggled: $ci-1; // Black
-$topbar-menu-link-color: $ci-1; // Black
-$topbar-menu-icon-color: $ci-1; // Black
-$topbar-menu-link-color-toggled: $ci-6; // Yellow
-$topbar-menu-icon-color-toggled: $ci-6; // Yellow
+
+$topbar-dropdown-bg: $ci-6; // Background Mobile Navigation
+$topbar-dropdown-link-color: #000;
+$topbar-dropdown-link-bg: $ci-2;
+
+$topbar-menu-link-color-toggled: $ci-1;
+$topbar-menu-icon-color-toggled: $ci-1;
+$topbar-menu-link-color: #000;
+$topbar-menu-icon-color: #000;
+$topbar-menu-link-color-toggled: $ci-6;
+$topbar-menu-icon-color-toggled: $ci-6;
+
+
 
 /* Footer
 ------------------------------------------------------------------- */
 
-$footer-bg: $grey-8; // Dark Grey
-$footer-color: $ci-2; // White
-$footer-link-color: $ci-6; // Yellow
+$footer-bg          : $grey-8;
+$footer-color       : #fff;
+$footer-link-color  : $ci-6;
 
-$subfooter-bg: $grey-13; // Black
-$subfooter-color: $grey-8; // Dark Grey
-$subfooter-link-color: $grey-8; // Dark Grey
+
+$subfooter-bg       : $grey-13;
+$subfooter-color    : $grey-8;
+$subfooter-link-color: $grey-8;
+
+
 
 /* Code
 ------------------------------------------------------------------- */
 
 $code-background-color: scale-color($secondary-color, $lightness: 70%);
 
-$highlight-background: #ffffff; // White
-$highlight-comment: #999999; // Grey
-$highlight-error: #ff0000; // Bright Red for errors
-$highlight-comment-special: #cccccc; // Light Grey
-$highlight-deleted: #000000; // Black
-$highlight-error-2: #aa0000; // Dark Red
-$highlight-literal-string: #ffc100; // Yellow
-$highlight-literal-number: #375b78; // Teal
-$highlight-name-attribut: #375b78; // Teal
-$highlight-error-background: #e3d2d2; // Light Red
-$highlight-generic-deleted: #ffdddd; // Light Red
-$highlight-generic-deleted-specific: #ffaaaa; // Medium Red
-$highlight-generic-inserted: #ddffdd; // Light Green
-$highlight-generic-inserted-specific: #aaffaa; // Medium Green
-$highlight-generic-output: #888888; // Grey
-$highlight-generic-prompt: #555555; // Dark Grey
-$highlight-subheading: #aaaaaa; // Grey
-$highlight-keyword-type: #445588; // Blue Grey
-$highlight-name-builtin: #0086b3; // Blue
-$highlight-name-class: #445588; // Blue Grey
-$highlight-name-entity: #800080; // Purple
-$highlight-name-exception: #990000; // Dark Red
-$highlight-name-function: #990000; // Dark Red
-$highlight-name-namespace: #555555; // Dark Grey
-$highlight-name-tag: #000080; // Navy
-$highlight-text-whitespace: #bbbbbb; // Light Grey
-$highlight-literal-string-regex: #ffc100; // Yellow
-$highlight-literal-string-symbol: #990073; // Dark Purple
+$highlight-background: #ffffff;
+$highlight-comment: #999988;
+$highlight-error: #a61717;
+$highlight-comment-special: #999999;
+$highlight-deleted: #000000;
+$highlight-error-2: #aa0000;
+$highlight-literal-string: #d14;
+$highlight-literal-number: #009999;
+$highlight-name-attribut: #008080;
+$highlight-error-background: #e3d2d2;
+$highlight-generic-deleted: #ffdddd;
+$highlight-generic-deleted-specific: #ffaaaa;
+$highlight-generic-inserted: #ddffdd;
+$highlight-generic-inserted-specific: #aaffaa;
+$highlight-generic-output: #888888;
+$highlight-generic-prompt: #555555;
+$highlight-subheading: #aaaaaa;
+$highlight-keyword-type: #445588;
+$highlight-name-builtin: #0086B3;
+$highlight-name-class: #445588;
+$highlight-name-entity: #800080;
+$highlight-name-exception: #990000;
+$highlight-name-function: #990000;
+$highlight-name-namespace: #555555;
+$highlight-name-tag: #000080;
+$highlight-text-whitespace: #bbbbbb;
+$highlight-literal-string-regex: #009926;
+$highlight-literal-string-symbol: #990073;
