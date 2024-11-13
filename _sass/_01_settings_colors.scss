@@ -24,10 +24,10 @@ $body-bg: #ffffff; // White background
 
 $ci-1: #000000; // Black
 $ci-2: #ffffff; // White
-$ci-3: #ffff00; // Yellow
-$ci-4: #cccc00; // Dark Yellow for accents
+$ci-3: #ffc100; // Yellow
+$ci-4: #ffc100; // Dark Yellow for accents
 $ci-5: #333333; // Dark Grey for subtle elements
-$ci-6: #ffff00; // Yellow
+$ci-6: #ffc100; // Yellow
 
 /* Foundation Color Variables
 ------------------------------------------------------------------- */
@@ -62,7 +62,7 @@ $grey-16: #000000;
 /* Topbar-Navigation
 ------------------------------------------------------------------- */
 
-$topbar-bg-color: $body-bg; // White
+$topbar-bg-color: $ffc100; // Yellow
 $topbar-bg: $topbar-bg-color;
 
 $topbar-dropdown-toggle-color: $ci-1; // Black
@@ -112,7 +112,7 @@ $highlight-error: #ff0000; // Bright Red for errors
 $highlight-comment-special: #cccccc; // Light Grey
 $highlight-deleted: #000000; // Black
 $highlight-error-2: #aa0000; // Dark Red
-$highlight-literal-string: #ffff00; // Yellow
+$highlight-literal-string: #ffc100; // Yellow
 $highlight-literal-number: #375b78; // Teal
 $highlight-name-attribut: #375b78; // Teal
 $highlight-error-background: #e3d2d2; // Light Red
@@ -132,5 +132,5 @@ $highlight-name-function: #990000; // Dark Red
 $highlight-name-namespace: #555555; // Dark Grey
 $highlight-name-tag: #000080; // Navy
 $highlight-text-whitespace: #bbbbbb; // Light Grey
-$highlight-literal-string-regex: #ffff00; // Yellow
+$highlight-literal-string-regex: #ffc100; // Yellow
 $highlight-literal-string-symbol: #990073; // Dark Purple
