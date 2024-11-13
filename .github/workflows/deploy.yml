@@ -20,11 +20,25 @@ jobs:
           username: ${{ secrets.VPS_USER }} # The username to connect to on your VPS
           key: ${{ secrets.VPS_SSH_KEY }} # The private SSH key, stored as a GitHub secret
           port: 22 # The SSH port (usually 22)
-          script: |
+          script: | # Commands to run on the server after connecting
             cd /var/www/arrowasphaltstriping.com
-            rbenv local 3.1.4
-            gem install bundler jekyll # Reinstall bundler and jekyll if needed
-            bundle install --path vendor/bundle
-            bundle exec jekyll clean # Cleans temporary files
+
+            # Set rbenv Ruby version to 3.1.4
+            if rbenv versions | grep -q "3.1.4"; then
+              rbenv local 3.1.4
+            else
+              echo "Ruby 3.1.4 not installed, please install it on the server."
+              exit 1
+            fi
+
+            # Install dependencies
+            gem install bundler jekyll
+            bundle config set --local path 'vendor/bundle'
+            bundle install
+
+            # Clean, Build, and Deploy
+            bundle exec jekyll clean
             JEKYLL_ENV=production bundle exec jekyll build --trace
+
+            # Restart Apache
             sudo systemctl restart apache2
