@@ -14,5 +14,8 @@ gem 'faraday-retry'
 
 gem 'google-protobuf', '~> 3.22'
 gem 'http_parser.rb', '~> 0.6.0'
+gem 'csv'
+gem 'base64'
+gem 'faraday-retry'
 
 
