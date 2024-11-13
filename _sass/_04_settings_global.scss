@@ -2,7 +2,6 @@
 
 $spacing-unit: 30px;
 
-
 // Foundation by ZURB
 // foundation.zurb.com
 // Licensed under MIT Open Source
@@ -60,7 +59,7 @@ $spacing-unit: 30px;
 // $rem-base: 16px;
 
 // Allows the use of rem-calc() or lower-bound() in your settings
-@import "functions";
+@use "functions";
 
 // The default font-size is set to 100% of the browser style sheet (usually 16px)
 // for compatibility with browser-based text zoom or user-set defaults.
@@ -72,7 +71,6 @@ $spacing-unit: 30px;
 
 $base-font-size: 16px;
 $rem-base: $base-font-size;
-
 
 // The $base-font-size is 100% while $base-line-height is 150%
 // $base-line-height: 150%;
@@ -562,7 +560,6 @@ $crumb-slash: "/";
 
 // Default radius for dropdown.
 // $f-dropdown-radius: $global-radius;
-
 
 // 09. Dropdown Buttons
 // - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -1140,7 +1137,10 @@ $side-nav-list-margin: rem-calc(0 0 0 0);
 
 // We use these to control link styles.
 $side-nav-link-color: $primary-color;
-$side-nav-link-color-active: scale-color($side-nav-link-color, $lightness: -40%);
+$side-nav-link-color-active: scale-color(
+  $side-nav-link-color,
+  $lightness: -40%
+);
 $side-nav-link-color-hover: scale-color($side-nav-link-color, $lightness: -40%);
 $side-nav-font-size: rem-calc(16);
 
@@ -1163,8 +1163,6 @@ $side-nav-font-size: rem-calc(16);
 $side-nav-divider-size: 1px;
 $side-nav-divider-style: solid;
 $side-nav-divider-color: $grey-1;
-
-
 
 // 27. Split Buttons
 // - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -1434,8 +1432,10 @@ $topbar-breakpoint: #{lower-bound($large-range)}; // Change to 9999px for always
 $topbar-media-query: "only screen and (min-width: #{$topbar-breakpoint})" !default;
 
 // Divider Styles
-$topbar-divider-border-bottom: solid 0px scale-color($topbar-bg-color, $lightness: 23%);
-$topbar-divider-border-top: solid 0px scale-color($topbar-bg-color, $lightness: -50%);
+$topbar-divider-border-bottom: solid 0px
+  scale-color($topbar-bg-color, $lightness: 23%);
+$topbar-divider-border-top: solid 0px
+  scale-color($topbar-bg-color, $lightness: -50%);
 
 // Sticky Class
 // $topbar-sticky-class: ".sticky";
