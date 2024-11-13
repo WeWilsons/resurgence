@@ -35,8 +35,7 @@ jobs:
             bundle install
 
             # Clean and Build the Jekyll site
-            bundle exec jekyll clean
+            bundle exec jekyll build --incremental
             JEKYLL_ENV=production bundle exec jekyll build --trace
-
             # Restart Apache
             sudo systemctl restart apache2
