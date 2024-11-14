@@ -16,28 +16,34 @@ jobs:
       - name: Deploy to VPS
         uses: appleboy/ssh-action@master
         with:
-          host: ${{ secrets.VPS_HOST }} # The IP address or hostname of your VPS
-          username: ${{ secrets.VPS_USER }} # The username to connect to on your VPS
-          key: ${{ secrets.VPS_SSH_KEY }} # The private SSH key, stored as a GitHub secret
-          port: 22 # The SSH port (usually 22)
-          script: | # Commands to run on the server after connecting
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          port: 22
+          script: |
+            # Navigate to the project directory
             cd /var/www/arrowasphaltstriping.com
-     # Pull latest changes from GitHub
+
+            # Pull latest changes from GitHub
             git fetch origin main
             git reset --hard origin/main
-            # Set rbenv Ruby version to 3.1.4
+
+            # Ensure Ruby version
             rbenv local 3.1.4 || { echo "Ruby 3.1.4 not found. Please install."; exit 1; }
 
-            # Ensure Jekyll and Bundler are installed with correct version
+            # Install Jekyll and Bundler with the correct version
             gem install bundler jekyll
 
-            # Rebuild the Gemfile.lock for a fresh environment
+            # Clear Gemfile.lock to avoid stale or incompatible dependencies
             rm -f Gemfile.lock
             bundle config set --local path 'vendor/bundle'
             bundle install
 
-            # Clean and Build the Jekyll site
-            bundle exec jekyll build --incremental
+            # Clear Jekyll cache for a fresh build
+            rm -rf .jekyll-cache
+
+            # Clean and fully rebuild the Jekyll site for production
             JEKYLL_ENV=production bundle exec jekyll build --trace
-            # Restart Apache
+
+            # Restart Apache to apply the changes
             sudo systemctl restart apache2
