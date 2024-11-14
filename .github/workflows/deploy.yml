@@ -22,7 +22,9 @@ jobs:
           port: 22 # The SSH port (usually 22)
           script: | # Commands to run on the server after connecting
             cd /var/www/arrowasphaltstriping.com
-
+     # Pull latest changes from GitHub
+            git fetch origin main
+            git reset --hard origin/main
             # Set rbenv Ruby version to 3.1.4
             rbenv local 3.1.4 || { echo "Ruby 3.1.4 not found. Please install."; exit 1; }
 
