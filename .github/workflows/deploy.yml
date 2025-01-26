@@ -10,9 +10,23 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # Step 1: Check out the repository
       - name: Check out the repository
         uses: actions/checkout@v3
 
+      # Step 2: Set up Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      # Step 3: Install dependencies and build the React app
+      - name: Install dependencies and build
+        run: |
+          npm ci
+          npm run build
+
+      # Step 4: Deploy the build output to the VPS
       - name: Deploy to VPS
         uses: appleboy/ssh-action@master
         with:
@@ -21,29 +35,12 @@ jobs:
           key: ${{ secrets.VPS_SSH_KEY }}
           port: 22
           script: |
-            # Navigate to the project directory
-            cd /var/www/arrowasphaltstriping.com
+            # Remove the existing site files
+            sudo rm -rf /var/www/arrowasphaltstriping.com/*
 
-            # Pull latest changes from GitHub
-            git fetch origin main
-            git reset --hard origin/main
+            # Upload the new build files
+            mkdir -p /var/www/arrowasphaltstriping.com
+            scp -r build/* ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}:/var/www/arrowasphaltstriping.com
 
-            # Ensure Ruby version
-            rbenv local 3.1.4 || { echo "Ruby 3.1.4 not found. Please install."; exit 1; }
-
-            # Install Jekyll and Bundler with the correct version
-            gem install bundler jekyll
-
-            # Clear Gemfile.lock to avoid stale or incompatible dependencies
-            rm -f Gemfile.lock
-            bundle config set --local path 'vendor/bundle'
-            bundle install
-
-            # Clear Jekyll cache for a fresh build
-            rm -rf .jekyll-cache
-
-            # Clean and fully rebuild the Jekyll site for production
-            JEKYLL_ENV=production bundle exec jekyll build --trace
-
-            # Restart Apache to apply the changes
-            sudo systemctl restart apache2
+            # Restart the web server
+            sudo systemctl restart nginx
