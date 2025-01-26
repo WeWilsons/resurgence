@@ -1,10 +1,27 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-// If you want to set a favicon, you typically do so in the <head> of your app:
-// <link rel="icon" type="image/png" href="/path-to-logo.png" />
-// This code snippet places it in the site if you’re using something like react-helmet.
 import { Helmet } from "react-helmet";
+
+// We define these constants to avoid double curly braces that conflict with Liquid.
+const headerMotionInitial = { opacity: 0, y: -20 };
+const headerMotionAnimate = { opacity: 1, y: 0 };
+const headerMotionTransition = { duration: 0.5 };
+
+const heroStyle = {
+  backgroundImage: "url('/placeholder-hero-image.jpg')"
+};
+
+const heroMotionInitial = { opacity: 0, y: 20 };
+const heroMotionAnimate = { opacity: 1, y: 0 };
+const heroMotionTransition = { duration: 0.6 };
+const heroMotionViewport = { once: true };
+
+// We can reuse these for the sections:
+const sectionMotionInitial = { opacity: 0, y: 20 };
+const sectionMotionAnimate = { opacity: 1, y: 0 };
+const sectionMotionTransition = { duration: 0.6 };
+const sectionMotionViewport = { once: true };
 
 export default function ArrowAsphaltStripingWebsite() {
   return (
@@ -28,9 +45,9 @@ export default function ArrowAsphaltStripingWebsite() {
         <header className="sticky top-0 z-50 bg-white shadow-md">
           <div className="flex items-center justify-between px-4 py-3 max-w-7xl mx-auto">
             <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
+              initial={headerMotionInitial}
+              animate={headerMotionAnimate}
+              transition={headerMotionTransition}
               className="text-xl font-bold text-[color:#ffcf00]"
             >
               Arrow Asphalt Striping
@@ -66,16 +83,16 @@ export default function ArrowAsphaltStripingWebsite() {
         <section
           id="hero"
           className="relative w-full h-[80vh] flex items-center justify-center bg-cover bg-center"
-          style={{ backgroundImage: "url('/placeholder-hero-image.jpg')" }}
+          style={heroStyle}
         >
           {/* Dark Overlay to Boost Text Visibility */}
           <div className="absolute inset-0 bg-black bg-opacity-30"></div>
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
+            initial={heroMotionInitial}
+            whileInView={heroMotionAnimate}
+            transition={heroMotionTransition}
+            viewport={heroMotionViewport}
             className="relative z-10 text-center text-white px-4"
           >
             <h1 className="text-3xl md:text-6xl font-bold mb-4 drop-shadow-lg">Arrow Asphalt Striping</h1>
@@ -88,10 +105,10 @@ export default function ArrowAsphaltStripingWebsite() {
         {/* Services: Carousel of Different Lines We Do */}
         <section id="services" className="py-12 bg-[color:#ffcf00]/10">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
+            initial={sectionMotionInitial}
+            whileInView={sectionMotionAnimate}
+            transition={sectionMotionTransition}
+            viewport={sectionMotionViewport}
             className="max-w-5xl mx-auto px-4"
           >
             <h2 className="text-3xl font-bold mb-6 text-center text-[color:#2C3E50]">Types of Lines We Offer</h2>
@@ -107,10 +124,10 @@ export default function ArrowAsphaltStripingWebsite() {
         {/* Carousel for Customer Reviews + Photos of Work */}
         <section id="reviews" className="py-12 bg-white">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
+            initial={sectionMotionInitial}
+            whileInView={sectionMotionAnimate}
+            transition={sectionMotionTransition}
+            viewport={sectionMotionViewport}
             className="max-w-5xl mx-auto px-4"
           >
             <h2 className="text-3xl font-bold mb-6 text-center text-[color:#2C3E50]">Customer Feedback & Gallery</h2>
@@ -126,10 +143,10 @@ export default function ArrowAsphaltStripingWebsite() {
         {/* Quote Section */}
         <section id="quote" className="py-12 bg-[color:#ffcf00]/10">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
+            initial={sectionMotionInitial}
+            whileInView={sectionMotionAnimate}
+            transition={sectionMotionTransition}
+            viewport={sectionMotionViewport}
             className="max-w-xl mx-auto px-4"
           >
             <h2 className="text-3xl font-bold mb-4 text-center text-[color:#2C3E50]">Request a Quote</h2>
